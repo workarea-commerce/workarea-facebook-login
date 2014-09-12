@@ -5,10 +5,6 @@ module Weblinc
       isolate_namespace Weblinc::Facebook
 
       initializer 'weblinc.facebook' do
-        Weblinc::StoreFront.config.javascripts.append(
-          'weblinc/store_front/modules/omniauth_facebook.js.erb'
-        )
-
         Weblinc::StoreFront.config.views.logins_section.append(
           'weblinc/store_front/facebook'
         )
