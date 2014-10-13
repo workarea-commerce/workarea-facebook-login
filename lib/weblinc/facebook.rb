@@ -1,4 +1,6 @@
 require 'weblinc'
+require 'weblinc/store_front'
+require 'weblinc/admin'
 require 'omniauth-facebook'
 
 module Weblinc
