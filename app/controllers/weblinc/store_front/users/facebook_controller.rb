@@ -1,6 +1,5 @@
 module Weblinc
   class StoreFront::Users::FacebookController < StoreFront::ApplicationController
-    force_ssl
     before_filter :ensure_not_locked, only: :create
 
     def create

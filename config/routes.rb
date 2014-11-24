@@ -5,7 +5,5 @@
 # end
 #
 Weblinc::StoreFront::Engine.routes.draw do
-  scope Weblinc::Core::Engine.ssl_options do
-    get 'auth/facebook/callback', to: 'users/facebook#create'
-  end
+  get 'auth/facebook/callback', to: 'users/facebook#create'
 end
