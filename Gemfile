@@ -15,9 +15,4 @@ gem "jquery-rails"
 # your gem to rubygems.org.
 
 # To use debugger
-gem 'debugger'
-
-
-group :test, :development do
-  gem 'weblinc-dev_tools'
-end
+# gem 'debugger'
