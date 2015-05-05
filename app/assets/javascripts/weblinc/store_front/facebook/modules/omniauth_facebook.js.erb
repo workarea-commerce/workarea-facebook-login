@@ -1,4 +1,4 @@
-WEBLINC.omniauthFacebook = (function () {
+WEBLINC.registerModule('omniauthFacebook', (function () {
     'use strict';
 
     var setup = function () {
@@ -85,6 +85,7 @@ WEBLINC.omniauthFacebook = (function () {
         },
 
         init = function ($scope) {
+            console.log('omniauth js initialized');
             var $loginButton = $('#login #facebook', $scope),
                 $checkoutButton = $('#login #fbcheckout', $scope),
                 $logoutButton = $('#logout #facebook', $scope);
