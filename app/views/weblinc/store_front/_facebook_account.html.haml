@@ -1,14 +1,12 @@
-.wl-box.facebook
-  .fancy-container
-    .action-header
-      %h2 Facebook
-  .wl-data-card
-    .data
+.box.facebook
+  %h2 Facebook
+  .data-card
+    .data-card__cell
       - if @user.is_omniauthed?
         %p You are connected with Facebook
-        %p#logout
-          = link_to 'Disconnect from Facebook', logout_path, id: 'facebook', class: 'wl-button--small'
+        .facebook__logout
+          = link_to 'Disconnect from Facebook', logout_path, id: 'facebook', class: 'button--small'
       - else
         %p You are not connected with Facebook
-        %p#login
-          = link_to 'Connect with Facebook', auth_facebook_path, id: 'facebook', class: 'wl-button--small'
+        .facebook__login
+          = link_to 'Connect with Facebook', '/auth/facebook/', id: 'facebook', class: 'button--small'

@@ -28,14 +28,14 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
                     } else if (response.status === 'not_authorized') {
                         FB.login(function(response) {
                             if (response.authResponse) {
-                                $('#login').html('Connected!');
+                                $('.facebook__login').html('Connected!');
                                 window.location = '/auth/facebook';
                             }
                         });
                     } else {
                         FB.login(function(response) {
                             if (response.authResponse) {
-                                $('#login').html('Connected!');
+                                $('.facebook__login').html('Connected!');
                                 window.location = '/auth/facebook';
                             }
                         });
@@ -85,12 +85,13 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
         },
 
         init = function ($scope) {
-            console.log('omniauth js initialized');
-            var $loginButton = $('#login #facebook', $scope),
-                $checkoutButton = $('#login #fbcheckout', $scope),
-                $logoutButton = $('#logout #facebook', $scope);
 
-            setup();
+            $('.facebook', $scope)
+            .each(setup);
+
+            var $loginButton = $('.facebook__login #facebook', $scope),
+                $checkoutButton = $('.facebook__login #fbcheckout', $scope),
+                $logoutButton = $('.facebook__logout #facebook', $scope);
 
             if (!_.isEmpty($loginButton)) {
                 listenForLogin($loginButton);
@@ -106,10 +107,7 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
 
         };
 
-    WEBLINC.modules.onDomReady(init);
-    WEBLINC.modules.onDomUpdate(init);
-
     return {
         init: init
     };
-}());
+}()));
