@@ -2,6 +2,10 @@ module Weblinc
   module StoreFront
     module Users
       decorate(LoginsController, with: 'weblinc_facebook') do
+        decorated do
+          helper FacebookHelper
+        end
+
         class_methods do
           def destroy
             if current_user && current_user.is_omniauthed?
