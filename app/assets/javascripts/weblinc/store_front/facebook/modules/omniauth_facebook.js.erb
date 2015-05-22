@@ -1,4 +1,4 @@
-WEBLINC.omniauthFacebook = (function () {
+WEBLINC.registerModule('omniauthFacebook', (function () {
     'use strict';
 
     var setup = function () {
@@ -28,14 +28,14 @@ WEBLINC.omniauthFacebook = (function () {
                     } else if (response.status === 'not_authorized') {
                         FB.login(function(response) {
                             if (response.authResponse) {
-                                $('#login').html('Connected!');
+                                $('.facebook__login').html('Connected!');
                                 window.location = '/auth/facebook';
                             }
                         });
                     } else {
                         FB.login(function(response) {
                             if (response.authResponse) {
-                                $('#login').html('Connected!');
+                                $('.facebook__login').html('Connected!');
                                 window.location = '/auth/facebook';
                             }
                         });
@@ -72,7 +72,7 @@ WEBLINC.omniauthFacebook = (function () {
                 e.preventDefault();
                 FB.getLoginStatus(function(response) {
                     if (response && response.status === 'connected') {
-                        if (confirm('When you disconnect your account with Facebook you must reset and create your <%= Weblinc::Site.current.name %> password.')) {
+                        if (confirm('When you disconnect your account with Facebook you must reset and create your <%= Weblinc::config.site_name %> password.')) {
                             FB.logout(function(response) {
                                 window.location = '/logout';
                             });
@@ -85,11 +85,12 @@ WEBLINC.omniauthFacebook = (function () {
         },
 
         init = function ($scope) {
-            var $loginButton = $('#login #facebook', $scope),
-                $checkoutButton = $('#login #fbcheckout', $scope),
-                $logoutButton = $('#logout #facebook', $scope);
+            var $loginButton = $('[data-facebook-login-button]', $scope),
+                $checkoutButton = $('[data-facebook-checkout-button]', $scope),
+                $logoutButton = $('[data-facebook-logout-button]', $scope);
 
-            setup();
+            $('.facebook', $scope)
+            .each(setup);
 
             if (!_.isEmpty($loginButton)) {
                 listenForLogin($loginButton);
@@ -105,10 +106,7 @@ WEBLINC.omniauthFacebook = (function () {
 
         };
 
-    WEBLINC.modules.onDomReady(init);
-    WEBLINC.modules.onDomUpdate(init);
-
     return {
         init: init
     };
-}());
+}()));
