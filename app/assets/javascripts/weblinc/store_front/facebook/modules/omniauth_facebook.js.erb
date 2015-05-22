@@ -85,13 +85,12 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
         },
 
         init = function ($scope) {
+            var $loginButton = $('[data-facebook-login-button]', $scope),
+                $checkoutButton = $('[data-facebook-checkout-button]', $scope),
+                $logoutButton = $('[data-facebook-logout-button]', $scope);
 
             $('.facebook', $scope)
             .each(setup);
-
-            var $loginButton = $('.facebook__login #facebook', $scope),
-                $checkoutButton = $('.facebook__login #fbcheckout', $scope),
-                $logoutButton = $('.facebook__logout #facebook', $scope);
 
             if (!_.isEmpty($loginButton)) {
                 listenForLogin($loginButton);
