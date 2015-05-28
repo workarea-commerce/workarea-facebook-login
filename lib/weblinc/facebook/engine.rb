@@ -5,11 +5,11 @@ module Weblinc
       isolate_namespace Weblinc::Facebook
 
       initializer 'weblinc.facebook' do
-        Weblinc::StoreFront.config.views.logins_section.append(
+        Weblinc::StoreFront.config.views.new_login.append(
           'weblinc/store_front/facebook'
         )
 
-        Weblinc::StoreFront.config.views.new_checkout_section.append(
+        Weblinc::StoreFront.config.views.new_checkout.append(
           'weblinc/store_front/facebook'
         )
 
