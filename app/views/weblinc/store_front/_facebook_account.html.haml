@@ -3,8 +3,10 @@
   .data-card
     .data-card__cell
       - if @user.is_omniauthed?
-        %p You are connected with Facebook
+        %p
+          You are connected with Facebook
           = link_to 'Disconnect from Facebook', logout_path, id: 'facebook', class: 'button button--small', data: { facebook_logout_button: '' }
       - else
-        %p You are not connected with Facebook
+        %p
+          You are not connected with Facebook
           = link_to 'Connect with Facebook', auth_facebook_path, id: 'facebook', class: 'button button--small', data: { facebook_login_button: '' }
