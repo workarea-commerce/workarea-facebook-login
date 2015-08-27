@@ -4,7 +4,7 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
     var setup = function () {
             window.fbAsyncInit = function() {
                 FB.init({
-                    appId  : <%= Weblinc.config.facebook_key %>,
+                    appId  : "<%= Weblinc.config.facebook_key %>",
                     status : true, // check login status
                     cookie : true, // enable cookies to allow the server to access the session
                     xfbml  : true  // parse XFBML
@@ -72,7 +72,7 @@ WEBLINC.registerModule('omniauthFacebook', (function () {
                 e.preventDefault();
                 FB.getLoginStatus(function(response) {
                     if (response && response.status === 'connected') {
-                        if (confirm('When you disconnect your account with Facebook you must reset and create your <%= Weblinc::config.site_name %> password.')) {
+                        if (confirm("When you disconnect your account with Facebook you must reset and create your <%= Weblinc.config.site_name %> password.")) {
                             FB.logout(function(response) {
                                 window.location = '/logout';
                             });
