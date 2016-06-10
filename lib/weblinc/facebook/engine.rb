@@ -4,19 +4,27 @@ module Weblinc
       include Weblinc::Plugin
       isolate_namespace Weblinc::Facebook
 
+      config.to_prepare do
+        Weblinc::StoreFront::ApplicationController.helper(
+          Weblinc::StoreFront::FacebookHelper
+        )
+      end
+
       initializer 'weblinc.facebook' do
-        Weblinc::StoreFront.config.views.new_login.append(
+        Plugin.append_partials(
+          'store_front.new_login',
           'weblinc/store_front/facebook'
         )
 
-        Weblinc::StoreFront.config.views.new_checkout.append(
+        Plugin.append_partials(
+          'store_front.new_checkout',
           'weblinc/store_front/facebook'
         )
 
-        Weblinc::StoreFront.config.views.account_section.append(
+        Plugin.append_partials(
+          'store_front.account_section',
           'weblinc/store_front/facebook_account'
         )
-
       end
     end
   end
