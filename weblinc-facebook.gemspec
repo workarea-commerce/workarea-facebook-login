@@ -18,5 +18,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.0.0'
 
   s.add_dependency 'omniauth-facebook', '3.0.0'
-  s.add_dependency 'weblinc', '~> 0.12.0'
+  s.add_dependency 'weblinc', '~> 2.1.7'
 end
