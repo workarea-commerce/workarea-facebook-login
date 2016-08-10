@@ -6,8 +6,8 @@ module Weblinc
       user = Weblinc::User.from_omniauth(auth_hash)
 
       if user.present? && user.valid?
-        if(user.admin? || user.csr? || user.super_admin?)
-          flash[:error] = "an admin or csr may not log in with Facebook."
+        if(user.admin? || user.super_admin?)
+          flash[:error] = "an admin may not log in with Facebook."
           redirect_to login_path
         else
           unless check_current_email(auth_hash)

@@ -10,7 +10,9 @@ module Weblinc
       field :deleted_at,       type: DateTime
       field :is_omniauthed,    type: Boolean, default: false
 
-      validate :password_validity, unless: :is_omniauthed?
+      validates :password,
+                password: { strength: Weblinc.config.password_strength },
+                unless: :is_omniauthed?
     end
 
     class_methods do
