@@ -27,6 +27,8 @@ module Weblinc
           user.email = auth.info.email
           user.oauth_token = auth.credentials.token
           user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+          user.first_name = auth.info.first_name.presence
+          user.last_name = auth.info.last_name.presence
           user.save
         end
         user
