@@ -11,7 +11,7 @@ module Weblinc
           redirect_to login_path
         else
           unless check_current_email(auth_hash)
-            flash[:error] = "Sorry, your facebook email and account email must match to connect with Facebook. You may change your email in My Account."
+            flash[:error] = "Sorry, your Facebook email and account email must match to connect with Facebook. You may change your email in My Account."
             redirect_back_or users_account_path and return
           end
 

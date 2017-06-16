@@ -28,7 +28,7 @@ describe Weblinc::StoreFront::Users::FacebookController do
         response.should redirect_to(login_path)
       end
 
-      it 'checks to see if the user facebook email matches' do
+      it 'checks to see if the user Facebook email matches' do
         controller.stub(check_current_email: false)
         get :create
         flash[:error].should_not be_blank
