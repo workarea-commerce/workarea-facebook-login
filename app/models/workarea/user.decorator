@@ -1,0 +1,41 @@
+module Workarea
+  decorate User, with: :facebook do
+    decorated do
+      field :provider,         type: String
+      field :uid,              type: String
+      field :oauth_token,      type: String
+      field :oauth_expires_at, type: DateTime
+      field :deleted_at,       type: DateTime
+      field :is_omniauthed,    type: Boolean, default: false
+    end
+
+    class_methods do
+      # Finds or initializes a User by an omniauth auth hash.
+      #
+      # @param [OmniAuth::AuthHash] auth_hash
+      #
+      # @return [Workarea::User]
+      #
+      def from_omniauth(auth)
+        return nil if auth.nil?
+
+        user = find_by_email(auth.info.email) || new(email: auth.info.email)
+
+        # Workarea/Core has a password validator and has_secure_password from 
+        # ActiveModel validates password length so just set a random password
+        user.password         = SecureRandom.hex
+        user.is_omniauthed    = true
+        user.provider         = auth.provider
+        user.uid              = auth.uid
+        user.name             = auth.info.name
+        user.email            = auth.info.email
+        user.oauth_token      = auth.credentials.token
+        user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+        user.first_name       = auth.info.first_name.presence
+        user.last_name        = auth.info.last_name.presence
+        user.save
+        user
+      end
+    end
+  end
+end
