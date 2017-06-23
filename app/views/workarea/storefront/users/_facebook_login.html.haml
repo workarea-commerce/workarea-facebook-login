@@ -1,0 +1,6 @@
+.facebook
+  .facebook__login
+    %h2= t('workarea.storefront.facebook.login_with_faceook')
+    %p= t('workarea.storefront.facebook.login_with_facebook_description')
+    #fb-root
+      = link_to t('workarea.storefront.facebook.connect_with_facebook'), Workarea::Facebook.auth_path, id: 'facebook', class: 'button'

@@ -1,0 +1,14 @@
+en:
+  workarea:
+    storefront:
+      facebook:
+        flash_messages:
+          failure: We're sorry. There was a problem connecting to Facebook. Please try again later.
+          admin_failure: An admin may not log in with Facebook.
+          email_mismatch: Sorry, your Facebook email and account email must match to connect with Facebook. You may change your email in My Account.
+        facebook: Facebook
+        connected_with_facebook: You are connected with Facebook
+        connect_with_facebook: Connect with Facebook
+        disconnect_from_facebook: Disconnect from Facebook
+        login_with_faceook: Log In with Facebook
+        login_with_facebook_description: Use your Facebook account to log into our website.

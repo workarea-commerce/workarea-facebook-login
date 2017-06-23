@@ -1,9 +1,5 @@
-# Add routes for your plugin, like so:
-#
-# Weblinc::Admin::Engine.routes.draw do
-#   resources :facebooks
-# end
-#
-Weblinc::StoreFront::Engine.routes.draw do
-  get 'auth/facebook/callback', to: 'users/facebook#create'
+Workarea::Storefront::Engine.routes.draw do
+  get "auth/facebook/callback", to: "users/facebook_logins#create"
+
+  get "auth/failure", to: "users/facebook_logins#failure"
 end
