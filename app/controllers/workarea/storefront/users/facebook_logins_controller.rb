@@ -15,7 +15,7 @@ module Workarea
     end
 
     def failure
-      flash[:error] = t("workarea.storefront.facebook.flash_messages.failure")
+      flash[:error] = t("workarea.storefront.facebook_login.flash_messages.failure")
       redirect_to login_path
     end
 
@@ -32,14 +32,14 @@ module Workarea
       def fail_admin_log_in
         return unless @user.admin? || @user.super_admin?
 
-        flash[:error] = t("workarea.storefront.facebook.flash_messages.admin_failure")
+        flash[:error] = t("workarea.storefront.facebook_login.flash_messages.admin_failure")
         redirect_to login_path
       end
 
       def validate_current_email
         return if current_user.nil? || current_user.email == auth_hash.info.email
 
-        flash[:error] = t("workarea.storefront.facebook.flash_messages.email_mismatch")
+        flash[:error] = t("workarea.storefront.facebook_login.flash_messages.email_mismatch")
         redirect_back_or users_account_path
       end
   end

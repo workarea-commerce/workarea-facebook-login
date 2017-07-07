@@ -2,13 +2,13 @@ require "test_helper"
 
 module Workarea
   class Storefront::FacebookLoginsSystemTest < Workarea::SystemTest
-    include Testing::FacebookLogingSupport
+    include Testing::FacebookLoginSupport
 
     def test_logging_in
       with_omniauth_testing do
         visit storefront.login_path
 
-        click_link t("workarea.storefront.facebook.connect_with_facebook")
+        click_link t("workarea.storefront.facebook_login.connect_with_facebook")
 
         assert(
           page.has_current_path?(storefront.users_account_path),

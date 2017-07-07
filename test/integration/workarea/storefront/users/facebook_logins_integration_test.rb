@@ -3,7 +3,7 @@ require "test_helper"
 module Workarea
   module Storefront
     class Users::FacebookLoginsIntegrationTest < Workarea::IntegrationTest
-      include Testing::FacebookLogingSupport
+      include Testing::FacebookLoginSupport
 
       delegate :t, to: I18n
 
@@ -14,7 +14,7 @@ module Workarea
         follow_redirect!
         assert_redirected_to(storefront.login_path)
         assert_equal(
-          t("workarea.storefront.facebook.flash_messages.failure"),
+          t("workarea.storefront.facebook_login.flash_messages.failure"),
           flash[:error]
         )
       end
@@ -27,7 +27,7 @@ module Workarea
 
           assert_redirected_to(storefront.login_path)
           assert_equal(
-            t("workarea.storefront.facebook.flash_messages.admin_failure"),
+            t("workarea.storefront.facebook_login.flash_messages.admin_failure"),
             flash[:error]
           )
         end
@@ -44,7 +44,7 @@ module Workarea
 
           assert_redirected_to(storefront.users_account_path)
           assert_equal(
-            t("workarea.storefront.facebook.flash_messages.email_mismatch"),
+            t("workarea.storefront.facebook_login.flash_messages.email_mismatch"),
             flash[:error]
           )
         end

@@ -13,7 +13,7 @@ require "workarea/admin"
 require "workarea/storefront"
 
 Bundler.require(*Rails.groups)
-require "workarea/facebook"
+require "workarea/facebook_login"
 
 module Dummy
   class Application < Rails::Application

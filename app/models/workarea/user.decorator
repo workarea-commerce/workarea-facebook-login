@@ -1,5 +1,5 @@
 module Workarea
-  decorate User, with: :facebook do
+  decorate User, with: :facebook_login do
     decorated do
       field :provider,         type: String
       field :uid,              type: String
@@ -21,7 +21,7 @@ module Workarea
 
         user = find_by_email(auth.info.email) || new(email: auth.info.email)
 
-        # Workarea/Core has a password validator and has_secure_password from 
+        # Workarea/Core has a password validator and has_secure_password from
         # ActiveModel validates password length so just set a random password
         user.password         = SecureRandom.hex
         user.is_omniauthed    = true
