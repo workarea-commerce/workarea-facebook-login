@@ -1,7 +1,7 @@
 en:
   workarea:
     storefront:
-      facebook:
+      facebook_login:
         flash_messages:
           failure: We're sorry. There was a problem connecting to Facebook. Please try again later.
           admin_failure: An admin may not log in with Facebook.

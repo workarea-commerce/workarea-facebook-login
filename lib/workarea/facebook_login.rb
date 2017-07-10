@@ -3,10 +3,10 @@ require "workarea/storefront"
 require "omniauth-facebook"
 
 module Workarea
-  module Facebook
+  module FacebookLogin
     def self.configure_omniauth_middleware
       Rails.application.config.middleware.use OmniAuth::Builder do
-        provider :facebook, Facebook.config[:key], Facebook.config[:secret], Facebook.middleware_options
+        provider :facebook, FacebookLogin.config[:key], FacebookLogin.config[:secret], FacebookLogin.middleware_options
       end
     end
 
@@ -32,5 +32,5 @@ module Workarea
   end
 end
 
-require "workarea/facebook/version"
-require "workarea/facebook/engine"
+require "workarea/facebook_login/version"
+require "workarea/facebook_login/engine"

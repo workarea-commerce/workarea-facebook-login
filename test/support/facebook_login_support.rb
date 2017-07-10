@@ -1,6 +1,6 @@
 module Workarea
   module Testing
-    module FacebookLogingSupport
+    module FacebookLoginSupport
       def with_omniauth_testing(successful = true, &blck)
         OmniAuth.config.test_mode = true
         OmniAuth.config.add_mock(:facebook,

@@ -1,14 +1,14 @@
 $:.push File.expand_path("../lib", __FILE__)
 
-require "workarea/facebook/version"
+require "workarea/facebook_login/version"
 
 Gem::Specification.new do |s|
-  s.name        = "workarea-facebook"
-  s.version     = Workarea::Facebook::VERSION
+  s.name        = "workarea-facebook_login"
+  s.version     = Workarea::FacebookLogin::VERSION
   s.authors     = ["Eric Pigeon"]
   s.email       = ["epigeon@workarea.com"]
-  s.homepage    = "https://stash.tools.weblinc.com/projects/WP/repos/workarea-facebook/browse"
-  s.summary     = "Facebook plugin for the Workarea ecommerce platform"
+  s.homepage    = "https://stash.tools.weblinc.com/projects/WP/repos/workarea-facebook-login/browse"
+  s.summary     = "Facebook Login plugin for the Workarea ecommerce platform"
   s.description = "Plugin for sign in with Facebook on the Workarea ecommerce platform."
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]

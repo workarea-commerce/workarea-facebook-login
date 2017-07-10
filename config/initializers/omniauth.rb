@@ -1,1 +1,1 @@
-Workarea::Facebook.configure_omniauth_middleware
+Workarea::FacebookLogin.configure_omniauth_middleware

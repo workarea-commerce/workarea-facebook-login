@@ -1,8 +1,8 @@
 module Workarea
-  module Facebook
+  module FacebookLogin
     class Engine < ::Rails::Engine
       include Workarea::Plugin
-      isolate_namespace Workarea::Facebook
+      isolate_namespace Workarea::FacebookLogin
     end
   end
 end
