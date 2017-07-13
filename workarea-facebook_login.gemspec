@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.summary     = "Facebook Login plugin for the Workarea ecommerce platform"
   s.description = "Plugin for sign in with Facebook on the Workarea ecommerce platform."
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["Rakefile", "README.rdoc"]
+  s.files = `git ls-files`.split("\n")
 
   s.required_ruby_version = ">= 2.0.0"
 
