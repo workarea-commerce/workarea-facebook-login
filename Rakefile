@@ -20,7 +20,7 @@ Rake::TestTask.new do |t|
 end
 
 $LOAD_PATH.unshift File.expand_path("../lib", __FILE__)
-require "workarea/facebook/version"
+require "workarea/facebook_login/version"
 
 desc "Generate the changelog based on git history"
 task :changelog, :from, :to do |t, args|
@@ -75,7 +75,7 @@ task :release do
   system "git tag -a v#{Workarea::FacebookLogin::VERSION} -m 'Tagging #{Workarea::FacebookLogin::VERSION}'"
   system "git push --tags"
 
-  system "gem build workarea-facebook.gemspec"
-  system "gem push workarea-facebook-#{Workarea::FacebookLogin::VERSION}.gem --host #{host}"
-  system "rm workarea-facebook-#{Workarea::FacebookLogin::VERSION}.gem"
+  system "gem build workarea-facebook_login.gemspec"
+  system "gem push workarea-facebook_login-#{Workarea::FacebookLogin::VERSION}.gem --host #{host}"
+  system "rm workarea-facebook_login-#{Workarea::FacebookLogin::VERSION}.gem"
 end
