@@ -6,7 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: workarea-commerce/ci/bundler-audit@v1
+    - uses: workarea-commerce/ci/bundler-audit@ignore-cves
+      with:
+        ignored: CVE-2015-9284
     - uses: workarea-commerce/ci/rubocop@v1
 
   admin_tests:
