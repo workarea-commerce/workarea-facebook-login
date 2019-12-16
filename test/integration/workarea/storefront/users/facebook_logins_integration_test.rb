@@ -55,17 +55,9 @@ module Workarea
           get storefront.auth_facebook_callback_path
 
           assert_redirected_to(storefront.users_account_path)
-          assert(response_cookies[:user_id].present?)
+          assert(session[:user_id].present?)
         end
       end
-
-      private
-
-        def response_cookies
-          ActionDispatch::Cookies::CookieJar
-            .build(request, response.cookies)
-            .signed
-        end
     end
   end
 end

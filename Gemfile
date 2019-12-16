@@ -1,10 +1,10 @@
 source "https://rubygems.org"
-source "https://gems.weblinc.com"
 
 gemspec
 
 gem "rubocop", require: false
 gem "bundler-audit", require: false
+gem "sprockets", "~> 3"
 
 group :test do
   gem "simplecov", require: false
