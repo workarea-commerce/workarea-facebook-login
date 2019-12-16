@@ -1,1 +1,2 @@
-inherit_from: .rails-rubocop.yml
+inherit_from:
+  - https://raw.githubusercontent.com/workarea-commerce/workarea/master/.rubocop.yml
