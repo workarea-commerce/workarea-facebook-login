@@ -30,10 +30,9 @@ task :release do
   Rake::Task['workarea:changelog'].execute
   system 'git add CHANGELOG.md'
   system 'git commit -m "Update CHANGELOG"'
-  system 'git push origin HEAD'
 
   system "git tag -a v#{Workarea::FacebookLogin::VERSION} -m 'Tagging #{Workarea::FacebookLogin::VERSION}'"
-  system "git push --tags"
+  system "git push origin HEAD --follow-tags"
 
   system "gem build workarea-facebook_login.gemspec"
   system "gem push workarea-facebook_login-#{Workarea::FacebookLogin::VERSION}.gem #{host}"
